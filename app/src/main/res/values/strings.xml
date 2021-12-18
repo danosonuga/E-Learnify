@@ -1,0 +1,15 @@
+<resources>
+    <string name="app_name">Learnify</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="home">Home</string>
+    <string name="courses">Courses</string>
+    <string name="category">Category</string>
+    <string name="welcome_message">Welcome to our Online Learning Community</string>
+    <string name="welcome_message_desc">We deliver access to solve online learning in the pandemic season</string>
+    <string name="see_all_courses"><u>See all courses</u></string>
+    <string name="course_title">Economical use of Oil in the pandemic</string>
+    <string name="see_all_category"><u>See all category</u></string>
+    <string name="design">Design</string>
+    <string name="course_title2">HTML: Web Begineer</string>
+</resources>
