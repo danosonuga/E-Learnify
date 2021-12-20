@@ -8,7 +8,7 @@
     <fragment
         android:id="@+id/homeFragment"
         android:name="com.sage.learnify.ui.home.HomeFragment"
-        android:label="fragment_home"
+        android:label="E-Learnify"
         tools:layout="@layout/fragment_home" >
         <action
             android:id="@+id/action_homeFragment_to_courseFragment"
@@ -24,7 +24,7 @@
     <fragment
         android:id="@+id/courseFragment"
         android:name="com.sage.learnify.ui.course.CourseFragment"
-        android:label="fragment_course"
+        android:label="Courses"
         tools:layout="@layout/fragment_course" >
         <action
             android:id="@+id/action_courseFragment_to_courseDetailFragment"

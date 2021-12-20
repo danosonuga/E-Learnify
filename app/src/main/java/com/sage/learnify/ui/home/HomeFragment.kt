@@ -1,69 +1,64 @@
 package com.sage.learnify.ui.home
 
-import android.app.Activity
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
-import androidx.databinding.DataBindingUtil
-import androidx.lifecycle.Observer
+import androidx.fragment.app.viewModels
 import androidx.lifecycle.ViewModelProvider
-import androidx.recyclerview.widget.LinearLayoutManager
-import com.sage.learnify.BR
+import androidx.lifecycle.lifecycleScope
+import androidx.lifecycle.viewmodel.compose.viewModel
+import androidx.navigation.Navigation
+import androidx.navigation.fragment.findNavController
 import com.sage.learnify.R
 import com.sage.learnify.adapter.HomeCourseAdapter
+import com.sage.learnify.adapter.HomeRecommendedAdapter
 import com.sage.learnify.databinding.FragmentHomeBinding
 import com.sage.learnify.databinding.ItemCourseHomeBinding
-import com.sage.learnify.model.Course
-import com.sage.learnify.model.Result
+import com.sage.learnify.model.ResultsItem
+import kotlinx.coroutines.launch
 
 class HomeFragment : Fragment() {
+    private lateinit var binding: FragmentHomeBinding
 
+    private val viewModel: HomeFragmentViewModel by viewModels()
 
-    private val viewModel by lazy {
-        ViewModelProvider(this)[HomeFragmentViewModel::class.java]
-    }
-
-    private lateinit var binding: ItemCourseHomeBinding
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
+        binding = FragmentHomeBinding.inflate(inflater, container, false)
 
-//        val view = LayoutInflater.from(context).inflate(R.layout.fragment_home, container, false)
-        binding = ItemCourseHomeBinding.inflate(inflater)
+        val homeCourseAdapter = HomeCourseAdapter()
+        val recommendedAdapter = HomeRecommendedAdapter()
 
-        binding.lifecycleOwner = this
-//        val myViewModel = makeApiCall()
-//
-//        setUpBinding(myViewModel)
 
+
+        binding.courseHomeRecycler.adapter = homeCourseAdapter
+        binding.recommendedCourseHomeRecycler.adapter = recommendedAdapter
+
+        binding.showAllCourses.setOnClickListener {view ->
+            Navigation.findNavController(view).navigate(R.id.action_homeFragment_to_courseFragment)
+        }
+
+        lifecycleScope.launch {
+            viewModel.getCourseListWithSize().observe(viewLifecycleOwner){responseList ->
+                val arrayList = responseList.results as ArrayList<ResultsItem>
+                homeCourseAdapter.resultItem = arrayList
+                homeCourseAdapter.notifyDataSetChanged()
+
+            }
+
+            viewModel.getRecommendedCourseList().observe(viewLifecycleOwner){responseList ->
+                val arrayList = responseList.results as ArrayList<ResultsItem>
+                recommendedAdapter.resultList = arrayList
+                recommendedAdapter.notifyDataSetChanged()
+            }
+        }
         setHasOptionsMenu(true)
         return binding.root
     }
-//
-//    private fun setUpBinding(viewModel: HomeFragmentViewModel) {
-//        val binding: FragmentHomeBinding = DataBindingUtil.setContentView(context as Activity, R.layout.fragment_home)
-//        binding.setVariable(BR.viewModel, viewModel)
-//        binding.executePendingBindings()
-//        binding.courseHomeRecycler.apply {
-//            layoutManager = LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false)
-//        }
-//    }
-//
-//    private fun makeApiCall(): HomeFragmentViewModel{
-//        viewModel.getCourseResultDataObserver().observe(viewLifecycleOwner, Observer<Course> {
-//            if (it != null){
-//                viewModel.setAdapterData(it.results as ArrayList<Result>)
-//            }else{
-//                Toast.makeText(context, "Error while fetching", Toast.LENGTH_LONG).show()
-//            }
-//        })
-//        viewModel.getCourseResult()
-//
-//        return viewModel
-//    }
+
 
 }

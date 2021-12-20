@@ -5,16 +5,18 @@
       <map>
         <entry key="..\:/Users/osonu/AndroidStudioProjects/Learnify/app/src/main/res/drawable/ic_home.xml" value="0.10989583333333333" />
         <entry key="..\:/Users/osonu/AndroidStudioProjects/Learnify/app/src/main/res/drawable/recently_viewed_card.xml" value="0.21614583333333334" />
+        <entry key="..\:/Users/osonu/AndroidStudioProjects/Learnify/app/src/main/res/drawable/tag_author.xml" value="0.1" />
         <entry key="..\:/Users/osonu/AndroidStudioProjects/Learnify/app/src/main/res/drawable/welcome_card.xml" value="0.10989583333333333" />
         <entry key="..\:/Users/osonu/AndroidStudioProjects/Learnify/app/src/main/res/layout/activity_home.xml" value="0.18704710144927536" />
         <entry key="..\:/Users/osonu/AndroidStudioProjects/Learnify/app/src/main/res/layout/app_bar_main.xml" value="0.18704710144927536" />
         <entry key="..\:/Users/osonu/AndroidStudioProjects/Learnify/app/src/main/res/layout/content_home.xml" value="0.18704710144927536" />
         <entry key="..\:/Users/osonu/AndroidStudioProjects/Learnify/app/src/main/res/layout/fragment_category.xml" value="0.18704710144927536" />
-        <entry key="..\:/Users/osonu/AndroidStudioProjects/Learnify/app/src/main/res/layout/fragment_course.xml" value="0.18704710144927536" />
+        <entry key="..\:/Users/osonu/AndroidStudioProjects/Learnify/app/src/main/res/layout/fragment_course.xml" value="0.2" />
         <entry key="..\:/Users/osonu/AndroidStudioProjects/Learnify/app/src/main/res/layout/fragment_course_detail.xml" value="0.18704710144927536" />
-        <entry key="..\:/Users/osonu/AndroidStudioProjects/Learnify/app/src/main/res/layout/fragment_home.xml" value="0.14692982456140352" />
+        <entry key="..\:/Users/osonu/AndroidStudioProjects/Learnify/app/src/main/res/layout/fragment_home.xml" value="0.25" />
         <entry key="..\:/Users/osonu/AndroidStudioProjects/Learnify/app/src/main/res/layout/item_category_home.xml" value="0.182518115942029" />
         <entry key="..\:/Users/osonu/AndroidStudioProjects/Learnify/app/src/main/res/layout/item_course_home.xml" value="0.33" />
+        <entry key="..\:/Users/osonu/AndroidStudioProjects/Learnify/app/src/main/res/layout/item_course_list.xml" value="0.22" />
         <entry key="..\:/Users/osonu/AndroidStudioProjects/Learnify/app/src/main/res/layout/item_recently_viewed.xml" value="0.182518115942029" />
         <entry key="..\:/Users/osonu/AndroidStudioProjects/Learnify/app/src/main/res/menu/main_menu.xml" value="0.2" />
       </map>

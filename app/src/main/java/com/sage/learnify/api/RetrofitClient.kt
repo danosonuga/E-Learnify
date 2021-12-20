@@ -1,40 +1,25 @@
 package com.sage.learnify.api
 
-import com.jakewharton.retrofit2.adapter.kotlin.coroutines.CoroutineCallAdapterFactory
-import com.sage.learnify.model.Course
-import com.sage.learnify.model.Result
-import com.squareup.moshi.Moshi
-import com.squareup.moshi.kotlin.reflect.KotlinJsonAdapterFactory
-import kotlinx.coroutines.Deferred
-import retrofit2.Call
+import okhttp3.OkHttpClient
+
+import okhttp3.logging.HttpLoggingInterceptor
 
 import retrofit2.Retrofit
-import retrofit2.converter.moshi.MoshiConverterFactory
-import retrofit2.create
-import retrofit2.http.GET
-import retrofit2.http.Header
+import retrofit2.converter.gson.GsonConverterFactory
 
 
-private const val BASE_URL = "https://www.udemy.com/api-2.0/"
+object RetrofitClient {
+    private const val BASE_URL = "https://www.udemy.com/api-2.0/"
 
-private val moshi = Moshi.Builder()
-    .add(KotlinJsonAdapterFactory())
-    .build()
+    fun createRetrofitClient(): UdemyCourseService {
+        val interceptor = HttpLoggingInterceptor().setLevel(HttpLoggingInterceptor.Level.BODY)
+        val client = OkHttpClient.Builder().addInterceptor(interceptor).build()
 
-private val retrofit = Retrofit.Builder()
-    .addConverterFactory(MoshiConverterFactory.create(moshi))
-        .addCallAdapterFactory(CoroutineCallAdapterFactory())
-        .baseUrl(BASE_URL)
-        .build()
-
-interface ApiService {
-    @GET("courses/")
-    suspend fun getCourseList(@Header("Authorization") Authorization: String):
-            Deferred<Course>
-}
-
-object LearnifyApi{
-    val apiService: ApiService by lazy {
-        retrofit.create(ApiService::class.java)
+        return Retrofit.Builder()
+            .baseUrl(BASE_URL)
+            .addConverterFactory(GsonConverterFactory.create())
+            .client(client)
+            .build()
+            .create(UdemyCourseService::class.java)
     }
 }

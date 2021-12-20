@@ -12,4 +12,7 @@
     <string name="see_all_category"><u>See all category</u></string>
     <string name="design">Design</string>
     <string name="course_title2">HTML: Web Begineer</string>
+    <string name="recommended_courses">Recommended Courses</string>
+    <string name="recently_viewed_courses">Recently Viewed Courses</string>
+    <string name="course_title_2">JavaScript: DOM Manipulation for Begineers 2021</string>
 </resources>
