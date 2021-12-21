@@ -36,8 +36,7 @@ class HomeActivity : AppCompatActivity() {
         val appBarConfiguration = AppBarConfiguration(
             setOf(
                 R.id.homeFragment,
-                R.id.courseFragment,
-                R.id.categoryFragment
+                R.id.courseFragment
             ),drawerLayout
         )
         setupActionBarWithNavController(navController,appBarConfiguration)

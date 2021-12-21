@@ -29,7 +29,4 @@ class CourseRepository {
         return retrofit.getAllCourses(token)
     }
 
-//    suspend fun getCourseById(): Response<ApiCourseResponse>{
-//        return retrofit.getCourseById(token)
-//    }
 }

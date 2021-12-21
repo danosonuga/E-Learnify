@@ -1,6 +1,8 @@
 package com.sage.learnify.model
 
+import android.os.Parcelable
 import com.google.gson.annotations.SerializedName
+import kotlinx.parcelize.Parcelize
 
 data class ApiCourseResponse(
 
@@ -23,13 +25,12 @@ data class ApiCourseResponse(
 	val searchTrackingId: String? = null
 )
 
+@Parcelize
 data class ResultsItem(
 
 	@field:SerializedName("visible_instructors")
 	val visibleInstructors: List<VisibleInstructorsItem?>? = null,
 
-	@field:SerializedName("lecture_search_result")
-	val lectureSearchResult: Any? = null,
 
 	@field:SerializedName("published_title")
 	val publishedTitle: String? = null,
@@ -40,18 +41,6 @@ data class ResultsItem(
 	@field:SerializedName("image_480x270")
 	val image480x270: String? = null,
 
-	@field:SerializedName("predictive_score")
-	val predictiveScore: Any? = null,
-
-	@field:SerializedName("input_features")
-	val inputFeatures: Any? = null,
-
-	@field:SerializedName("order_in_results")
-	val orderInResults: Any? = null,
-
-	@field:SerializedName("curriculum_items")
-	val curriculumItems: List<Any?>? = null,
-
 	@field:SerializedName("title")
 	val title: String? = null,
 
@@ -61,8 +50,6 @@ data class ResultsItem(
 	@field:SerializedName("url")
 	val url: String? = null,
 
-	@field:SerializedName("price_detail")
-	val priceDetail: Any? = null,
 
 	@field:SerializedName("image_240x135")
 	val image240x135: String? = null,
@@ -70,14 +57,10 @@ data class ResultsItem(
 	@field:SerializedName("price")
 	val price: String? = null,
 
-	@field:SerializedName("curriculum_lectures")
-	val curriculumLectures: List<Any?>? = null,
 
 	@field:SerializedName("is_practice_test_course")
 	val isPracticeTestCourse: Boolean? = null,
 
-	@field:SerializedName("instructor_name")
-	val instructorName: Any? = null,
 
 	@field:SerializedName("_class")
 	val _class: String? = null,
@@ -93,11 +76,9 @@ data class ResultsItem(
 
 	@field:SerializedName("tracking_id")
 	val trackingId: String? = null,
+) : Parcelable
 
-	@field:SerializedName("relevancy_score")
-	val relevancyScore: Any? = null
-)
-
+@Parcelize
 data class VisibleInstructorsItem(
 
 	@field:SerializedName("initials")
@@ -126,7 +107,7 @@ data class VisibleInstructorsItem(
 
 	@field:SerializedName("url")
 	val url: String? = null
-)
+) : Parcelable
 
 data class OptionsItem(
 

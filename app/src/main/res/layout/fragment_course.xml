@@ -8,11 +8,10 @@
     android:background="#F1F1F1"
     android:paddingTop="16dp">
 
-
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/course_list_recycler"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
         android:orientation="vertical"
         tools:listitem="@layout/item_course_list"
@@ -20,4 +19,5 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

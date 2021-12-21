@@ -10,8 +10,4 @@
         android:id="@+id/courseFragment"
         android:icon="@drawable/ic_course"
         android:title="@string/courses" />
-    <item
-        android:id="@+id/categoryFragment"
-        android:icon="@drawable/ic_category"
-        android:title="@string/category" />
 </menu>

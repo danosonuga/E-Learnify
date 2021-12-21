@@ -9,7 +9,7 @@ import com.sage.learnify.R
 import com.sage.learnify.databinding.ItemCourseListBinding
 import com.sage.learnify.model.ResultsItem
 
-class CourseListAdapter : RecyclerView.Adapter<CourseListAdapter.ViewHolder>() {
+class CourseListAdapter(private val listener: ClickListener) : RecyclerView.Adapter<CourseListAdapter.ViewHolder>() {
     var resultList = arrayListOf<ResultsItem>()
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
@@ -19,6 +19,9 @@ class CourseListAdapter : RecyclerView.Adapter<CourseListAdapter.ViewHolder>() {
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val itemPicked = resultList[position]
         holder.bind(itemPicked)
+        holder.itemView.setOnClickListener {
+            listener.onClick(itemPicked)
+        }
     }
 
     override fun getItemCount(): Int {
@@ -27,13 +30,6 @@ class CourseListAdapter : RecyclerView.Adapter<CourseListAdapter.ViewHolder>() {
 
     class ViewHolder(private val binding: ItemCourseListBinding) :
         RecyclerView.ViewHolder(binding.root) {
-
-        init {
-            binding.root.setOnClickListener { view ->
-                Navigation.findNavController(view)
-                    .navigate(R.id.action_courseFragment_to_courseDetailFragment)
-            }
-        }
 
         fun bind(resultsItem: ResultsItem) {
             binding.itemCourseTitle.text = resultsItem.title
@@ -54,5 +50,9 @@ class CourseListAdapter : RecyclerView.Adapter<CourseListAdapter.ViewHolder>() {
                 )
             }
         }
+    }
+
+    class ClickListener(private val clicks: (ResultsItem)-> Unit){
+        fun onClick(result: ResultsItem) = clicks(result)
     }
 }

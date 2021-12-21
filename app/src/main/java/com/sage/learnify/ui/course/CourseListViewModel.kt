@@ -10,6 +10,10 @@ import com.sage.learnify.repository.CourseRepository
 class CourseListViewModel: ViewModel() {
 
     private val repository = CourseRepository()
+    private val _errorMesssage = MutableLiveData<String>()
+
+    val errorMessage: LiveData<String>
+    get() = _errorMesssage
 
     suspend fun getAllCourses(): LiveData<ApiCourseResponse>{
         val mutableLiveData = MutableLiveData<ApiCourseResponse>()
@@ -18,7 +22,7 @@ class CourseListViewModel: ViewModel() {
         if (allPost.isSuccessful){
             mutableLiveData.value = allPost.body()
         }else{
-            Log.d("Error Message", allPost.message())
+            _errorMesssage.value = "Error in network connection, please try again later!"
         }
         return mutableLiveData
     }

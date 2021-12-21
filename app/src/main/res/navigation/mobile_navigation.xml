@@ -14,9 +14,6 @@
             android:id="@+id/action_homeFragment_to_courseFragment"
             app:destination="@id/courseFragment" />
         <action
-            android:id="@+id/action_homeFragment_to_categoryFragment"
-            app:destination="@id/categoryFragment" />
-        <action
             android:id="@+id/action_homeFragment_to_courseDetailFragment"
             app:destination="@id/courseDetailFragment" />
     </fragment>
@@ -31,17 +28,12 @@
             app:destination="@id/courseDetailFragment" />
     </fragment>
     <fragment
-        android:id="@+id/categoryFragment"
-        android:name="com.sage.learnify.ui.category.CategoryFragment"
-        android:label="fragment_category"
-        tools:layout="@layout/fragment_category" />
-    <fragment
         android:id="@+id/courseDetailFragment"
         android:name="com.sage.learnify.ui.course_detail.CourseDetailFragment"
-        android:label="fragment_course_detail"
+        android:label="Course Details"
         tools:layout="@layout/fragment_course_detail" >
-        <action
-            android:id="@+id/action_courseDetailFragment_to_categoryFragment"
-            app:destination="@id/categoryFragment" />
+        <argument
+            android:name="response"
+            app:argType="com.sage.learnify.model.ResultsItem" />
     </fragment>
 </navigation>

@@ -27,10 +27,5 @@ interface UdemyCourseService {
         @Header("Authorization") authorization: String
     ): Response<ApiCourseResponse>
 
-    @GET("courses/{id}/")
-    suspend fun getCourseById(
-        @Header("Authorization") authorization: String,
-        @Path("id") id: String
-    ): Response<ApiCourseResponse>
 
 }
