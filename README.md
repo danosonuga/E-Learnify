@@ -8,4 +8,8 @@ To get this source code, you can go ahead and download the .zip file or use `git
 
 ## Screenshots of the Application interface
 
-![This is an image](https://github.com/danosonuga/e-Learnigy/blob/master/Home%20Page.png)
+![This is an image](https://github.com/danosonuga/e-Learnigy/blob/master/Home%20Page.png)      ![This is an image](https://github.com/danosonuga/e-Learnigy/blob/master/Courses.png)
+
+[^note]: I just want to thank the mentor of GADS for the assist in the development of this project
+
+[^note]: Developer: Daniel Osonuga
