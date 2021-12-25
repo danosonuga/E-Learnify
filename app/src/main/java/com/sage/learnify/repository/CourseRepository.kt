@@ -8,11 +8,11 @@ import retrofit2.Response
 
 class CourseRepository {
     private val retrofit = RetrofitClient.createRetrofitClient()
-    private val token = "Basic c2RkdkRFeTlGRGlIdHluTFFwYWw0SUhiejFWVXlx" +
-            "VmVtWHBpZTdMRDpNeWhoalBXd05BcTV6SWhDYW1lUWlSY" +
-            "jNEeEd1a1pwWTcxTGd2ekRYOXJaZnZsdk9QTUdMRXh5UGUz" +
-            "VkF0VXJRMDc4ZEtMQWZtRVpoTnZjQ3JZN0Y2TTNnYlNSRENV" +
-            "d2k3M0hXdU5ZeVAxWUJJVEZSWjRWZHVSWDZoNnZFejJHNg=="
+    private val token = "Basic c2RkdkRFeTlGRGlIdHluTFFwYWw0SUhiej" +
+            "FWVXlxVmVtWHBpZTdMRDpNeWhoalBXd05BcTV6SWhDYW1lUWlSYj" +
+            "NEeEd1a1pwWTcxTGd2ekRYOXJaZnZsdk9QTUdMRXh5UGUzVkF0VX" +
+            "JRMDc4ZEtMQWZtRVpoTnZjQ3JZN0Y2TTNnYlNSRENVd2k3M0hXdU" +
+            "5ZeVAxWUJJVEZSWjRWZHVSWDZoNnZFejJHNg=="
 
     private val PAGE_SIZE = 5
     private val duration = "medium"

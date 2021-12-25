@@ -8,7 +8,9 @@ import android.view.ViewGroup
 import androidx.navigation.fragment.navArgs
 import coil.load
 import com.sage.learnify.R
+import com.sage.learnify.adapter.CourseInstructorAdapter
 import com.sage.learnify.databinding.FragmentCourseDetailBinding
+import com.sage.learnify.model.VisibleInstructorsItem
 
 
 class CourseDetailFragment : Fragment() {
@@ -24,10 +26,18 @@ class CourseDetailFragment : Fragment() {
         // Inflate the layout for this fragment
         binding = FragmentCourseDetailBinding.inflate(inflater, container, false)
 
+        val instructorAdapter = CourseInstructorAdapter()
+
         binding.courseDetailImage.load(courseDetailFragmentArgs.response.image480x270)
         binding.courseDetailTitle.text = courseDetailFragmentArgs.response.title
         binding.courseHeadline.text = courseDetailFragmentArgs.response.headline
         binding.coursePaidValue.text = courseDetailFragmentArgs.response.price
+
+        binding.courseInstructorRecycler.adapter = instructorAdapter
+
+        val arrayList = courseDetailFragmentArgs.response.visibleInstructors as ArrayList<VisibleInstructorsItem>
+        instructorAdapter.instructorList = arrayList
+        instructorAdapter.notifyDataSetChanged()
 
         return binding.root
     }
